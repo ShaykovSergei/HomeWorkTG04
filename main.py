@@ -11,7 +11,7 @@ from gtts import gTTS
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
 
-
+import my_keyboard as kb
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
@@ -78,7 +78,7 @@ async def help(message: Message):
 
 @dp.message(CommandStart())
 async def start(message: Message):
-    await message.answer(f'Привет, {message.from_user.first_name}')
+    await message.answer(f'Привет, {message.from_user.first_name}', reply_markup=kb.main)
     # await message.answer(f'Привет, {message.from_user.full_name}')
     # await message.answer('Привет! Я бот.')
 
